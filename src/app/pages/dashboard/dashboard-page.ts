@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, signal } from "@angular/core";
 import { MatCardModule } from "@angular/material/card";
 import { FiltersForm } from "../../components/filters-form";
 import { TemperatureChart } from "../../components/temperature-chart";
@@ -16,7 +16,7 @@ import { TemperatureChart } from "../../components/temperature-chart";
         </mat-card>
         <mat-card appearance="outlined" class="w-full">
           <mat-card-content>
-            <app-temperature-chart />
+            <app-temperature-chart [data]="[]" [isDark]="isDark()" />
           </mat-card-content>
         </mat-card>
       </div>
@@ -24,4 +24,6 @@ import { TemperatureChart } from "../../components/temperature-chart";
   `,
   styleUrl: "./dashboard.css",
 })
-export default class DashboardPage {}
+export default class DashboardPage {
+  isDark = signal(window.matchMedia("(prefers-color-scheme: dark)").matches);
+}

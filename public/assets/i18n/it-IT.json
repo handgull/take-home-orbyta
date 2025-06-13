@@ -3,5 +3,8 @@
   "relevationsDatePickerHint": "Inserisci un periodo",
   "from": "Da",
   "to": "A",
-  "sensor": "Sensore"
+  "sensor": "Sensore",
+  "temperatureChartTitle": "Grafico temperatura",
+  "utcDate": "Data UTC",
+  "celsius": "Celsius"
 }
