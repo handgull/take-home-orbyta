@@ -23,7 +23,7 @@ import { TranslocoService } from "@jsverse/transloco";
           </mat-card-content>
         </mat-card>
         <mat-card appearance="outlined" class="h-[480px] w-full">
-          <mat-card-content>
+          <mat-card-content class="h-full">
             <app-temperature-chart [data]="chartData()" [isDark]="isDark()" />
           </mat-card-content>
         </mat-card>

@@ -13,6 +13,7 @@
 
 ## NICE TO HAVE
 
+- filtraggio lato be (a fini di demo è assolutamente istantaneo il caricamento)
 - unit test con jest
 - e2e/component test con cypress
 - Nx monorepo for a better boilerplate generation cache optimized CI/CD, dependabot and more

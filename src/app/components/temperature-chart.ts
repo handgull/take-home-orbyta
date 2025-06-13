@@ -19,7 +19,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [PlotlyModule, UIOverlay],
   template: `
-    <div class="relative">
+    <div class="relative h-full">
       @if (data().length === 0) {
         <app-ui-overlay [emptyState]="true" />
       }
