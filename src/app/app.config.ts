@@ -8,21 +8,22 @@ import {
   inject,
 } from "@angular/core";
 import { provideRouter } from "@angular/router";
-
 import { routes } from "./app.routes";
 import { provideHttpClient } from "@angular/common/http";
 import { TranslocoHttpLoader } from "./transloco-loader";
 import {
-  getBrowserLang,
+  getBrowserCultureLang,
   provideTransloco,
   Translation,
   TranslocoService,
 } from "@jsverse/transloco";
 import { lastValueFrom } from "rxjs";
+import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from "@angular/material/core";
+import { MAT_MOMENT_DATE_FORMATS } from "@angular/material-moment-adapter";
 
 function initializeTranslations(translateService: TranslocoService) {
   return (): Promise<Translation> =>
-    lastValueFrom(translateService.load(getBrowserLang() ?? "en"));
+    lastValueFrom(translateService.load(getBrowserCultureLang() ?? "en-US"));
 }
 
 export const appConfig: ApplicationConfig = {
@@ -31,16 +32,11 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(routes),
     provideHttpClient(),
-    {
-      provide: LOCALE_ID,
-      deps: [],
-      useFactory: () => getBrowserLang(),
-    },
     provideTransloco({
       config: {
-        availableLangs: ["en", "it"],
-        defaultLang: getBrowserLang(),
-        reRenderOnLangChange: true,
+        availableLangs: ["en-US", "it-IT"],
+        defaultLang: getBrowserCultureLang(),
+        reRenderOnLangChange: false,
         prodMode: !isDevMode(),
       },
       loader: TranslocoHttpLoader,
@@ -49,5 +45,16 @@ export const appConfig: ApplicationConfig = {
       const initializerFn = initializeTranslations(inject(TranslocoService));
       return initializerFn();
     }),
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
+    {
+      provide: LOCALE_ID,
+      useFactory: (ts: TranslocoService) => ts.getActiveLang(),
+      deps: [TranslocoService],
+    },
+    {
+      provide: MAT_DATE_LOCALE,
+      useFactory: (locale: string) => locale,
+      deps: [LOCALE_ID],
+    },
   ],
 };
