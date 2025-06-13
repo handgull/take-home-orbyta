@@ -8,12 +8,16 @@ import { NgOptimizedImage } from "@angular/common";
   template: `
     <div class="overlay">
       @if (emptyState()) {
-        <img
-          ngSrc="/assets/no-data.webp"
-          alt="no data"
-          height="256"
-          width="256"
-        />
+        @defer {
+          <img
+            ngSrc="/assets/no-data.webp"
+            alt="no data"
+            height="256"
+            width="256"
+          />
+        } @placeholder {
+          <mat-spinner></mat-spinner>
+        }
       } @else {
         <mat-spinner></mat-spinner>
       }

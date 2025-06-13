@@ -16,5 +16,5 @@
 - filtraggio lato be (a fini di demo è assolutamente istantaneo il caricamento)
 - unit test con jest
 - e2e/component test con cypress
-- Nx monorepo for a better boilerplate generation cache optimized CI/CD, dependabot and more
+- Nx monorepo for a better boilerplate generation cache optimized CI/CD and more
 - ngrx per gestione dello stato più centralizzata e standard (oltre a debug temporale ed altri vantaggi)

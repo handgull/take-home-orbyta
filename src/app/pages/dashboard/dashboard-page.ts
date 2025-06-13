@@ -59,7 +59,6 @@ export default class DashboardPage implements OnInit {
 
   constructor() {
     effect(() => {
-      console.log("effect");
       if (this._sensorsService.errorFetching()) {
         this._snackBar
           .open(this._errorFetchingMessage(), this._retryText())
