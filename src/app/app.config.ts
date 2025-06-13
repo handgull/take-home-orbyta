@@ -12,7 +12,7 @@ import { routes } from "./app.routes";
 import { provideHttpClient } from "@angular/common/http";
 import { TranslocoHttpLoader } from "./transloco-loader";
 import {
-  getBrowserCultureLang,
+  getBrowserLang,
   provideTransloco,
   Translation,
   TranslocoService,
@@ -23,7 +23,7 @@ import { MAT_MOMENT_DATE_FORMATS } from "@angular/material-moment-adapter";
 
 function initializeTranslations(translateService: TranslocoService) {
   return (): Promise<Translation> =>
-    lastValueFrom(translateService.load(getBrowserCultureLang() ?? "en-US"));
+    lastValueFrom(translateService.load(getBrowserLang() ?? "en"));
 }
 
 export const appConfig: ApplicationConfig = {
@@ -34,8 +34,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideTransloco({
       config: {
-        availableLangs: ["en-US", "it-IT"],
-        defaultLang: getBrowserCultureLang(),
+        availableLangs: ["en", "it"],
+        defaultLang: getBrowserLang(),
         reRenderOnLangChange: false,
         prodMode: !isDevMode(),
       },
@@ -50,11 +50,6 @@ export const appConfig: ApplicationConfig = {
       provide: LOCALE_ID,
       useFactory: (ts: TranslocoService) => ts.getActiveLang(),
       deps: [TranslocoService],
-    },
-    {
-      provide: MAT_DATE_LOCALE,
-      useFactory: (locale: string) => locale,
-      deps: [LOCALE_ID],
     },
   ],
 };

@@ -1,6 +1,4 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { MomentDateAdapter } from "@angular/material-moment-adapter";
-import { DateAdapter, MAT_DATE_LOCALE } from "@angular/material/core";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
@@ -16,13 +14,6 @@ import { TranslocoModule } from "@jsverse/transloco";
     MatDatepickerModule,
     MatInputModule,
     MatSelectModule,
-  ],
-  providers: [
-    {
-      provide: DateAdapter,
-      useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE],
-    },
   ],
   template: `
     <ng-container *transloco="let t">
