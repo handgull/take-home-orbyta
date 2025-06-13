@@ -1,0 +1,9 @@
+@reference '../../../styles.css';
+
+.main-container {
+  @apply flex h-dvh w-dvw justify-center md:items-center;
+}
+
+.main-card {
+  @apply m-6 flex w-full max-w-[1200px] flex-col items-start gap-3 md:flex-row;
+}

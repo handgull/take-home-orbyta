@@ -1,3 +1,7 @@
 {
-  "filters": "Filters"
+  "filters": "Filters",
+  "relevationsDatePickerHint": "Enter a date range",
+  "from": "From",
+  "to": "To",
+  "sensor": "Sensor"
 }

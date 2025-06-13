@@ -1,3 +1,7 @@
 {
-  "filters": "Filtri"
+  "filters": "Filtri",
+  "relevationsDatePickerHint": "Inserisci un periodo",
+  "from": "Da",
+  "to": "A",
+  "sensor": "Sensore"
 }

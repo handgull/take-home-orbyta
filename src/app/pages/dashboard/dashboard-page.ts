@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { MatCardModule } from "@angular/material/card";
-import { FiltersForm } from "../components/filters-form";
-import { TemperatureChart } from "../components/temperature-chart";
+import { FiltersForm } from "../../components/filters-form";
+import { TemperatureChart } from "../../components/temperature-chart";
 import { TranslocoModule } from "@jsverse/transloco";
 
 @Component({
@@ -9,11 +9,9 @@ import { TranslocoModule } from "@jsverse/transloco";
   imports: [TranslocoModule, MatCardModule, FiltersForm, TemperatureChart],
   template: `
     <ng-container *transloco="let t">
-      <section class="flex h-dvh w-dvw justify-center md:items-center">
-        <div
-          class="m-6 flex w-full max-w-[1200px] flex-col items-start gap-3 md:flex-row"
-        >
-          <mat-card appearance="outlined">
+      <section class="main-container">
+        <div class="main-card">
+          <mat-card appearance="outlined" class="w-full md:w-fit">
             <mat-card-content>
               <app-filters-form [title]="t('filters')" />
             </mat-card-content>
@@ -27,6 +25,6 @@ import { TranslocoModule } from "@jsverse/transloco";
       </section>
     </ng-container>
   `,
-  styles: ``,
+  styleUrl: "./dashboard.css",
 })
 export default class DashboardPage {}
