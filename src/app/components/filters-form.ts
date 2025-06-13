@@ -18,7 +18,7 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
-import { TranslocoModule, TranslocoService } from "@jsverse/transloco";
+import { TranslocoModule } from "@jsverse/transloco";
 import { debounceTime, filter } from "rxjs";
 
 @Component({

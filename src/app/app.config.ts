@@ -18,7 +18,7 @@ import {
   TranslocoService,
 } from "@jsverse/transloco";
 import { lastValueFrom } from "rxjs";
-import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from "@angular/material/core";
+import { MAT_DATE_FORMATS } from "@angular/material/core";
 import { MAT_MOMENT_DATE_FORMATS } from "@angular/material-moment-adapter";
 
 function initializeTranslations(translateService: TranslocoService) {
