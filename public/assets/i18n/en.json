@@ -6,5 +6,7 @@
   "sensor": "Sensor",
   "temperatureChartTitle": "Temperature chart",
   "utcDate": "UTC Date",
-  "celsius": "Celsius"
+  "celsius": "Celsius",
+  "errorFetching": "Error fetching sensors data!",
+  "retry": "Retry!"
 }

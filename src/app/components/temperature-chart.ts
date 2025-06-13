@@ -52,6 +52,8 @@ export class TemperatureChart {
       zerolinecolor: this.isDark() ? "#444" : "#888",
       gridcolor: this.isDark() ? "#444" : "#888",
     },
+    autosize: true,
+    height: null,
     margin: { l: 46, r: 12, t: 46, b: 46 },
     paper_bgcolor: "transparent",
     plot_bgcolor: "transparent",
@@ -66,7 +68,7 @@ export class TemperatureChart {
   readonly plotData = computed(() => [
     {
       x: this.data().map((point) => point.timestamp),
-      y: this.data().map((point) => point.timestamp),
+      y: this.data().map((point) => point.value),
       type: "scatter",
       mode: "lines+points",
     },
