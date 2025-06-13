@@ -18,18 +18,18 @@ export class Sensors {
   private _http = inject(HttpClient);
 
   private _sensorsRes = signal<ApiResponse | null>(null);
-  readonly sensorsRes = computed(() => this._sensorsRes());
   private _fetchStatus = signal<FetchStatus | null>(null);
-  readonly fetchStatus = computed(() => this._fetchStatus());
+  private _from = signal<Date | null>(null);
+  private _to = signal<Date | null>(null);
+  private _activeSensor = signal<string | null>(null);
+
+  // readonly public computed API
   readonly fetching = computed(
     () => this._fetchStatus() === FetchStatus.fetching,
   );
   readonly errorFetching = computed(
     () => this._fetchStatus() === FetchStatus.errorFetching,
   );
-  private _from = signal<Date | null>(null);
-  private _to = signal<Date | null>(null);
-  private _activeSensor = signal<string | null>(null);
   readonly sensors = computed(
     () => this._sensorsRes()?.sensors.map((e) => e.sensor) ?? [],
   );

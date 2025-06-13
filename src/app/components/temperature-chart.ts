@@ -10,19 +10,25 @@ import { PlotlyModule } from "angular-plotly.js";
 import { SensorDataPoint } from "@/models/sensors";
 import { TranslocoService } from "@jsverse/transloco";
 import { toSignal } from "@angular/core/rxjs-interop";
+import { UIOverlay } from "./ui-overlay/ui-overlay";
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
 @Component({
   selector: "app-temperature-chart",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PlotlyModule],
+  imports: [PlotlyModule, UIOverlay],
   template: `
-    <plotly-plot
-      [data]="plotData()"
-      [layout]="plotLayout()"
-      [config]="plotConfig"
-    ></plotly-plot>
+    <div class="relative">
+      @if (data().length === 0) {
+        <app-ui-overlay [emptyState]="true" />
+      }
+      <plotly-plot
+        [data]="plotData()"
+        [layout]="plotLayout()"
+        [config]="plotConfig"
+      ></plotly-plot>
+    </div>
   `,
   styles: ``,
 })

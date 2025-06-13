@@ -1,0 +1,5 @@
+@reference '../../../styles.css';
+
+.overlay {
+  @apply absolute top-0 left-0 z-10 flex size-full items-center justify-center bg-[#00000025];
+}

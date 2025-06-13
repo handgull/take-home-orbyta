@@ -3,21 +3,21 @@ import { MatCardModule } from "@angular/material/card";
 import { FiltersForm } from "../../components/filters-form";
 import { TemperatureChart } from "../../components/temperature-chart";
 import { Sensors } from "@/services/sensors";
-import { SpinnerOverlay } from "@/components/spinner-overlay";
+import { UIOverlay } from "@/components/ui-overlay/ui-overlay";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { toSignal } from "@angular/core/rxjs-interop";
 import { TranslocoService } from "@jsverse/transloco";
 
 @Component({
   selector: "app-dashboard-page",
-  imports: [MatCardModule, FiltersForm, TemperatureChart, SpinnerOverlay],
+  imports: [MatCardModule, FiltersForm, TemperatureChart, UIOverlay],
   template: `
     <section class="main-container">
       <div class="main-card">
         <mat-card appearance="outlined" class="w-full md:w-fit">
           <mat-card-content class="relative">
             @if (loading()) {
-              <app-spinner-overlay />
+              <app-ui-overlay />
             }
             <app-filters-form [disabled]="loading()" [sensors]="sensors()" />
           </mat-card-content>

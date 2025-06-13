@@ -4,6 +4,7 @@
 
 - Architettura standalone e zoneless
 - Change detection ottimizzata tramite caching con signals ed OnPush
+- State managing reattivo custom con i signals esponendo alla UI solo interfacce in lettura
 - Responsivness di base implementata tramite la sintassi tailwind
 - Validazione dei formati dei modelli remoti tramite zod ed un custom operator rxjs
 - l10n funzionante ed envinronments
