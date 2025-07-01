@@ -34,7 +34,7 @@
     "@angular/build": "^20.0.2",
     "@angular/cli": "^20.0.2",
     "@angular/compiler-cli": "^20.0.0",
-    "@tailwindcss/postcss": "^4.1.10",
+    "@tailwindcss/postcss": "^4.1.11",
     "@types/jasmine": "~5.1.0",
     "@types/plotly.js-dist-min": "^2.3.4",
     "angular-eslint": "20.0.0",
